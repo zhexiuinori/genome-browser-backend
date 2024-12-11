@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+'use strict';
+
+const app = require('../server.js');
+
+const port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+const server = app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
+
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+  if (isNaN(port)) return val;
+  if (port >= 0) return port;
+  return false;
+}
